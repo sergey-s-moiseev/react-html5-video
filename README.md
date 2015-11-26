@@ -13,7 +13,7 @@ used by zexeo.com
  - custom menu for mouse right click 
  - register any event listener on parent component
  - playback rate change
- - select defferient resulution
+ - select different resolutions
  - use without browserify
  - complete tests
 
@@ -79,9 +79,9 @@ Video.defaultProps = {
 
 ```
 ###video meta data loaded callback
-onece the meta data is loaded, you can get the info of this video(width,height,duration...etc), then you can use the returnd api to perform basic actions
+onece the meta data is loaded, you can get the info of this video(width,height,duration...etc), then you can use the return api to perform basic actions
 
-the reutned api has throse property:
+the returned api has those property:
 <table><thead>
 <tr>
 <th align="left">Property</th>
@@ -130,5 +130,6 @@ class App extends React.Component{
 	}
 }
 ```
-
+##Original copyright
+©[http://eisneim.github.io/](Eisneim Terry)
 
