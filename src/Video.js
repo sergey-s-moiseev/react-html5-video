@@ -150,22 +150,35 @@ class Video extends React.Component {
 		}
 		return  $tracks
 	}
-	$getSource( sources ){
-		if(!Array.isArray(sources)) return [];
-		var $sources = [];
-		for(var ii =0 ;ii<sources.length; ii++){
-			let ss = sources[ii]
-			let extName = path.extname( ss ).substr(1);
-			$sources.push(
-				<source src={ss} type={"video/"+extName} key={ii}/>
-			)
+	$extractSource( ss, ii, extName ) {
+		switch (this.props.playerType)
+		{
+			case "youtube":
+				return <source src={`http://www.youtubeinmp4.com/redirect.php?video=${ss}`} type="video/mp4" key={ii}/>
+				break;
+			case "vimeo":
+				return <source src={`http://www.vimeoinmp4.com/redirect.php?video=${ss}`} type="video/mp4" key={ii}/>
+			case "default":
+			default:
+				return <source src={ss} type={"video/"+extName} key={ii}/>
 		}
-		return $sources;
 	}
+
+	$getSource( sources ) {
+		if (!Array.isArray(sources)) return [];
+		var $sources = [];
+		for (var ii = 0; ii < sources.length; ii++) {
+			let ss = sources[ii]
+			let extName = path.extname(ss).substr(1);
+			$sources.push(this.$extractSource(ss, ii, extName))
+			return $sources;
+		}
+	}
+
 	render(){
 		const { subtitles, loop, autoPlay, poster,preload, sources, controlPanelStyle, autoHideControls } = this.props
 		//html5 video options
-		var options = { loop, autoPlay, poster,preload };
+		var options = { loop, autoPlay, poster, preload };
 		var wraperStyle = {}, contentWraperStyle = {};
 		let $video = this.$video || {};
 		let vWidth =  this.props.width || $video.videoWidth || $video.clientWidth;
@@ -307,6 +320,7 @@ Video.propTypes = {
 	height: 						React.PropTypes.string,
 	volume: 						React.PropTypes.number,
 	seekDisabled: 					React.PropTypes.bool,
+	playerType:					React.PropTypes.string,
 
 	// overlayStyle: 			React.PropTypes.object,
 }
@@ -321,6 +335,7 @@ Video.defaultProps = {
 	controlPanelStyle: "overlay",
 	preload: 				"auto",
 	seekDisabled: false,
+	playerType:			"default"
 }
 
 export default Video
