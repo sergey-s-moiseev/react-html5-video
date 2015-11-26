@@ -131,5 +131,5 @@ class App extends React.Component{
 }
 ```
 ##Original copyright
-©[http://eisneim.github.io/](Eisneim Terry)
+© [Eisneim Terry](http://eisneim.github.io/)
 
