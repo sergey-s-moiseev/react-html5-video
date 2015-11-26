@@ -50,6 +50,7 @@ class Video extends React.Component {
 		this.seekbarUpdateTimer = setInterval( this._timeupdate, 80);
 	}
 	_setTime( percent, isPercent ){
+		console.log(">>>>>", this.state.seekDisabled);
 		if(this.state.seekDisabled) return;
 		if( isPercent && percent>100) return;
 		var time = isPercent? percent * this.$video.duration / 100 : percent;
