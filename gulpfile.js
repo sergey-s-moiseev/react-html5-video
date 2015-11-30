@@ -166,7 +166,7 @@ gulp.task('serve',["js-es6",'watch']);
 
 gulp.task("try",function(){
 	argv.env = "production";
-	gulp.run(["js-es6"])
+	gulp.start(["js-es6"])
 })
 
 // --------- utils ------------

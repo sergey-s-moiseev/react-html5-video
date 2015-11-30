@@ -68,6 +68,11 @@ class Video extends React.Component {
 			seekProgress: percent, 
 			currentTime: formatTime(this.$video.currentTime) 
 		}
+		if (this.state.isPlaying) {
+			if (this.$video.currentTime >= this.props.duration) {
+				this.props.onFinish();
+			}
+		}
 		if(this.$video.currentTime >= this.$video.duration ) {
 			newState.isPlaying = false;
 		}
