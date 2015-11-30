@@ -319,23 +319,26 @@ Video.propTypes = {
 	width: 							React.PropTypes.string,
 	height: 						React.PropTypes.string,
 	volume: 						React.PropTypes.number,
-	seekDisabled: 					React.PropTypes.bool,
+	seekDisabled: 			React.PropTypes.bool,
 	playerType:					React.PropTypes.string,
+	duration:						React.PropTypes.number,
+	onFinish:						React.PropTypes.func
 
 	// overlayStyle: 			React.PropTypes.object,
 }
 
 Video.defaultProps = {
-	autoPlay:  			false,
-	loop: 					false,
-	controls: 			true,
-	autoHideControls:true,
-	volume: 				1.0,
-	mute: 					false,
-	controlPanelStyle: "overlay",
-	preload: 				"auto",
-	seekDisabled: false,
-	playerType:			"default"
+	autoPlay:  					false,
+	loop: 							false,
+	controls: 					true,
+	autoHideControls:		true,
+	volume: 						1.0,
+	mute: 							false,
+	controlPanelStyle: 	"overlay",
+	preload: 						"auto",
+	seekDisabled: 			false,
+	playerType:					"default",
+	duration:						0
 }
 
 export default Video
