@@ -69,8 +69,9 @@ class Video extends React.Component {
 			currentTime: formatTime(this.$video.currentTime) 
 		}
 		if (this.state.isPlaying) {
-			if (this.$video.currentTime >= this.props.duration) {
-				this.props.onFinish();
+			console.log(this.$video.currentTime +"/" + this.props.duration);
+			if ((this.$video.currentTime >= this.props.duration) || this.$video.currentTime >= this.$video.duration) {
+				this.props.onFinish && this.props.onFinish();
 			}
 		}
 		if(this.$video.currentTime >= this.$video.duration ) {
